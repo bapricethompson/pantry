@@ -1,0 +1,245 @@
+main h1{
+    text-align:center;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-top:0px;
+}
+
+body{
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0px;
+    margin-bottom:0px;
+    background-color: #F2F2F2 ;
+}
+
+main{
+    width:90%;
+    background-color: #8C7669;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-top:0px;
+    color:white;
+    padding:20px;
+}
+ .material-symbols-outlined{
+    cursor:pointer;
+ }
+#content{
+    display:flex;
+    justify-content: space-between;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+input[type=text] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  input[type=number] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type=date] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+#contentLeft{
+    border-radius:10px;
+    background-color: #D7D7D9;
+    padding:20px;
+    text-align:center;
+    width:47%;
+    margin:10px;
+}
+
+#contentRight{
+    border-radius:10px;
+    background-color: #D7D7D9;
+    padding:20px;
+    text-align:center;
+    color:black;
+    width:47%;
+    margin:10px;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    margin:0;
+    border-radius:0;
+    background-color: #000000e6; 
+}
+
+
+.modal-content {
+    background-color: #BFB8AE;
+    margin: 5% auto; 
+    padding: 20px;
+    border-radius: 15px;
+    width: 95%; 
+    max-width: 1200px; /* Increased max width */
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.3); /* Box shadow for aesthetics */
+}
+
+#modalBigDiv{
+    font-size: 20pt;
+}
+
+
+#modalBigDiv div{
+    text-align:right;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#modalBigDiv ul {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2{
+    text-align:center;
+}
+
+.ingred-card{
+    background-color:#BFB8AE;
+    color:white;
+    padding: 10px;
+    margin:10px;
+    cursor:pointer;
+    border-radius:10px;
+}
+
+.ingred-card:hover{
+    background-color:#a49e95;
+    color:white;
+    padding: 10px;
+    margin:10px;
+    cursor:pointer;
+    border-radius:10px;
+}
+
+
+input[type="radio"] {
+    display: none;
+}
+
+/* Style the labels to look like buttons */
+.radio-label {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #402A1E;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change color when hovered */
+.radio-label:hover {
+    background-color: #f0f0f0;
+}
+
+/* Style when selected */
+input[type="radio"]:checked + .radio-label {
+    background-color: #402A1E;
+    color: white;
+    border-color: #402A1E;
+}
+
+
+#submitButton {
+    background-color: #402A1E; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius:10px;
+    cursor:pointer;
+  }
+
+  #submitButton:hover {
+    background-color: #402A1E; 
+  }
+
+  #editButton {
+    background-color: #59554C; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius:10px;
+    cursor:pointer;
+  }
+
+  #editButton:hover {
+    background-color: #2f2d28; 
+  }
+
+  #pantryList {
+    width: 100%;
+    height: 650px;  /* Set a height to enable scrolling */
+    overflow-y: scroll;  /* Enable vertical scrolling */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none;  /* Hide scrollbar for Internet Explorer/Edge */
+}
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+#pantryList::-webkit-scrollbar {
+    display: none;
+}
+
+#expiringSoon{
+    background-color: #8C837B;
+    border-radius:10px;
+    padding:15px;
+    margin:10px;
+}
+
+#create{
+    background-color: #8C837B;
+    border-radius:10px;
+    padding:15px;
+    margin:10px;
+    margin-top:15px;
+}
