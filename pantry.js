@@ -66,6 +66,10 @@ subButton.addEventListener("click", function(){
     quant.value="";
     expir.value="";
     category.value="";
+    itName.style.backgroundColor="white";
+    quant.style.backgroundColor="white";
+    expir.style.backgroundColor="white";
+    category.style.backgroundColor="white";
 
 })
 
