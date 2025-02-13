@@ -137,10 +137,6 @@ function loadPantry(){
             let expiDiv=document.createElement("div");
             expiDiv.classList.add("ingred-card");
 
-            let expirTitle=document.createElement("h2");
-            expirTitle.textContent= pantry[0].name;
-            expiDiv.appendChild(expirTitle);
-
             let expirDate=document.createElement("h2");
             let yes=false;
             let expiring={};
@@ -153,6 +149,9 @@ function loadPantry(){
                     yes = true;
                 }
             }
+            let expirTitle=document.createElement("h2");
+            expirTitle.textContent= expiring.name;
+            expiDiv.appendChild(expirTitle);
             expiDiv.appendChild(expirDate);
 
             expiDiv.addEventListener("click", function(){
@@ -174,7 +173,7 @@ function loadPantry(){
                     modalList.appendChild(newLi1);
 
                     let newLi2=document.createElement("li");
-                    newLi2.textContent= "Expiration Date:" + expiring.expiration;
+                    newLi2.textContent= "Expiration Date: " + new Date(expiring.expiration).toLocaleDateString("en-US");
                     modalList.appendChild(newLi2);
 
                     let newLi3=document.createElement("li");
