@@ -3,6 +3,9 @@
 ## Overview  
 Pantry Manager is a web application that helps users keep track of their pantry items. Users can add food items to their pantry, categorize them, and view expiration dates. The system automatically sorts items by expiration date, ensuring that users can quickly see which foods are expiring soonest.
 
+## Demo
+[Watch this video]([https://www.youtube.com/watch?v=6nT1EFvGOcc]
+
 ## Features  
 - **Add Items** – Easily add food items with details such as name, quantity, expiration date, category, and storage location.  
 - **Track Expiration Dates** – See what items are expiring next
