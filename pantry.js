@@ -169,22 +169,21 @@ function loadPantry(){
 
                 let modalList=document.createElement("ul");
 
-                    // style better
                 let newLi1=document.createElement("li");
-                newLi1.textContent=expiring.quantity;
-                modalList.appendChild(newLi1);
+                    newLi1.textContent="Quantity: " + expiring.quantity;
+                    modalList.appendChild(newLi1);
 
-                let newLi2=document.createElement("li");
-                newLi2.textContent=expiring.expiration;
-                modalList.appendChild(newLi2);
+                    let newLi2=document.createElement("li");
+                    newLi2.textContent= "Expiration Date:" + expiring.expiration;
+                    modalList.appendChild(newLi2);
 
-                let newLi3=document.createElement("li");
-                newLi3.textContent=expiring.category;
-                modalList.appendChild(newLi3);
+                    let newLi3=document.createElement("li");
+                    newLi3.textContent="Category: " + expiring.category;
+                    modalList.appendChild(newLi3);
 
-                let newLi4=document.createElement("li");
-                newLi4.textContent=expiring.storageLocation;
-                modalList.appendChild(newLi4);
+                    let newLi4=document.createElement("li");
+                    newLi4.textContent="Storage Location: " + expiring.storageLocation;
+                    modalList.appendChild(newLi4);
 
                 modalBigDiv.appendChild(modalList);
                 modal.style.display = "block";
