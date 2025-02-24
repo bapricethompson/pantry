@@ -55,7 +55,7 @@ subButton.addEventListener("click", function(){
         return;
     }
     data.append("storageLocation",document.querySelector('input[name="storage"]:checked').value);
-    fetch(`https://reimagined-computing-machine-9v4qrwjr9gjcxg5w-3000.app.github.dev/foods`, {
+    fetch(`http://localhost:3000/foods`, {
         method: "POST",
         body:data
     }).then(function (response){
@@ -81,7 +81,7 @@ edButton.addEventListener("click", function(){
     data.append("expiration",expir.value);
     data.append("category",category.value);
     data.append("storageLocation",document.querySelector('input[name="storage"]:checked').value);
-    fetch(`https://reimagined-computing-machine-9v4qrwjr9gjcxg5w-3000.app.github.dev/foods/${editFoodId}`, {
+    fetch(`http://localhost:3000/foods/${editFoodId}`, {
         method: "PUT",
         body:data
     }).then(function (response){
@@ -99,7 +99,7 @@ edButton.addEventListener("click", function(){
 
 function deleteFood(foodId){
     console.log("delete button pushed ", foodId);
-    fetch(`https://reimagined-computing-machine-9v4qrwjr9gjcxg5w-3000.app.github.dev/foods/${foodId}`, {
+    fetch(`http://localhost:3000/foods/${foodId}`, {
         method: "DELETE"
     }).then(function (response){
         loadPantry();
@@ -109,7 +109,7 @@ function deleteFood(foodId){
 
 function getSingle(fooId){
     let upData={};
-    fetch(`https://reimagined-computing-machine-9v4qrwjr9gjcxg5w-3000.app.github.dev/foods/${fooId}`, {
+    fetch(`http://localhost:3000/foods/${fooId}`, {
         method: "GET"
     }).then(function (response){
         response.json().then(function (data){
@@ -128,7 +128,7 @@ function getSingle(fooId){
 
 function loadPantry(){
     edButton.style.display="none";
-    fetch("https://reimagined-computing-machine-9v4qrwjr9gjcxg5w-3000.app.github.dev/foods").then(function (response){
+    fetch("http://localhost:3000/foods").then(function (response){
         response.json().then(function(data) {
             console.log("data",data);
             pantry = data;
