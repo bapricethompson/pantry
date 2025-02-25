@@ -55,7 +55,7 @@ subButton.addEventListener("click", function(){
         return;
     }
     data.append("storageLocation",document.querySelector('input[name="storage"]:checked').value);
-    fetch(`http://localhost:3000/foods`, {
+    fetch(`https://s25-full-stack-bapricethompson.onrender.com/foods`, {
         method: "POST",
         body:data
     }).then(function (response){
@@ -81,7 +81,7 @@ edButton.addEventListener("click", function(){
     data.append("expiration",expir.value);
     data.append("category",category.value);
     data.append("storageLocation",document.querySelector('input[name="storage"]:checked').value);
-    fetch(`http://localhost:3000/foods/${editFoodId}`, {
+    fetch(`https://s25-full-stack-bapricethompson.onrender.com/foods/${editFoodId}`, {
         method: "PUT",
         body:data
     }).then(function (response){
@@ -99,7 +99,7 @@ edButton.addEventListener("click", function(){
 
 function deleteFood(foodId){
     console.log("delete button pushed ", foodId);
-    fetch(`http://localhost:3000/foods/${foodId}`, {
+    fetch(`https://s25-full-stack-bapricethompson.onrender.com/foods/${foodId}`, {
         method: "DELETE"
     }).then(function (response){
         loadPantry();
@@ -109,7 +109,7 @@ function deleteFood(foodId){
 
 function getSingle(fooId){
     let upData={};
-    fetch(`http://localhost:3000/foods/${fooId}`, {
+    fetch(`https://s25-full-stack-bapricethompson.onrender.com/foods/${fooId}`, {
         method: "GET"
     }).then(function (response){
         response.json().then(function (data){
@@ -128,7 +128,7 @@ function getSingle(fooId){
 
 function loadPantry(){
     edButton.style.display="none";
-    fetch("http://localhost:3000/foods").then(function (response){
+    fetch("https://s25-full-stack-bapricethompson.onrender.com/foods").then(function (response){
         response.json().then(function(data) {
             console.log("data",data);
             pantry = data;
