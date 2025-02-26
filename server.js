@@ -2,7 +2,7 @@ const express = require('express')
 const multer = require('multer');
 const cors = require('cors')
 const mongoose = require('mongoose');
-mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.zeen9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`',{
+mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.zeen9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,{
     dbName: "pantry-api"
 });
 
