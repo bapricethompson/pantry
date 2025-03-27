@@ -5,6 +5,7 @@ let itName=document.querySelector("#itemName");
 let quant=document.querySelector("#quantity");
 let expir=document.querySelector("#expiration");
 let cat=document.querySelector("#category");
+let out=document.querySelector("#logout");
 let expirDetails=document.querySelector("#expirDetails");
 let fridgeRadio = document.getElementById('fridge');
 let freezerRadio = document.getElementById('freezer');
@@ -30,13 +31,24 @@ window.onclick = function(event) {
     }
 };
 
+
+out.addEventListener("click", function(){
+    fetch(`https://s25-authentication-bapricethompson.onrender.com/session`, {
+        method: "DELETE"
+    }).then(function (response){
+        let log=document.getElementById("login");
+        log.style.display="block";
+        login();
+    })
+})
+
 // clear the fields after adding
 subButton.addEventListener("click", function(){
     let data = new FormData();
     data.append("name",itName.value);
     data.append("quantity",quant.value);
     data.append("expiration",expir.value);
-    data.append("category",category.value);
+    data.append("category",cat.value);
 
     if (!itName.value) {
         itName.style.backgroundColor="#D97059";
@@ -50,12 +62,12 @@ subButton.addEventListener("click", function(){
         expir.style.backgroundColor="#D97059";
         return;
     }
-    if (!category.value) {
-        category.style.backgroundColor="#D97059";
+    if (!cat.value) {
+        cat.style.backgroundColor="#D97059";
         return;
     }
     data.append("storageLocation",document.querySelector('input[name="storage"]:checked').value);
-    fetch(`https://s25-full-stack-bapricethompson.onrender.com/foods`, {
+    fetch(`https://s25-authentication-bapricethompson.onrender.com/foods`, {
         method: "POST",
         body:data
     }).then(function (response){
@@ -81,7 +93,7 @@ edButton.addEventListener("click", function(){
     data.append("expiration",expir.value);
     data.append("category",category.value);
     data.append("storageLocation",document.querySelector('input[name="storage"]:checked').value);
-    fetch(`https://s25-full-stack-bapricethompson.onrender.com/foods/${editFoodId}`, {
+    fetch(`https://s25-authentication-bapricethompson.onrender.com/foods/${editFoodId}`, {
         method: "PUT",
         body:data
     }).then(function (response){
@@ -99,7 +111,7 @@ edButton.addEventListener("click", function(){
 
 function deleteFood(foodId){
     console.log("delete button pushed ", foodId);
-    fetch(`https://s25-full-stack-bapricethompson.onrender.com/foods/${foodId}`, {
+    fetch(`https://s25-authentication-bapricethompson.onrender.com/foods/${foodId}`, {
         method: "DELETE"
     }).then(function (response){
         loadPantry();
@@ -109,7 +121,7 @@ function deleteFood(foodId){
 
 function getSingle(fooId){
     let upData={};
-    fetch(`https://s25-full-stack-bapricethompson.onrender.com/foods/${fooId}`, {
+    fetch(`https://s25-authentication-bapricethompson.onrender.com/foods/${fooId}`, {
         method: "GET"
     }).then(function (response){
         response.json().then(function (data){
@@ -128,7 +140,7 @@ function getSingle(fooId){
 
 function loadPantry(){
     edButton.style.display="none";
-    fetch("https://s25-full-stack-bapricethompson.onrender.com/foods").then(function (response){
+    fetch("https://s25-authentication-bapricethompson.onrender.com/foods").then(function (response){
         response.json().then(function(data) {
             console.log("data",data);
             pantry = data;
@@ -300,5 +312,126 @@ function loadPantry(){
 }
 
 
-loadPantry();
+function login(){
+    let main=document.getElementById("main");
+    let body=document.getElementById("body");
+    let log=document.getElementById("login");
+    let subPass=document.getElementById("subPassword");
+    let subAcc=document.getElementById("subAccount");
+    let errMess=document.getElementById("errMessage");
+    let pass=document.getElementById("password");
+    let email=document.getElementById("email");
+    main.style.display="none";
+    log.style.display="block";
+
+    subAccount.addEventListener("click", function(){
+        if (!email.value && !pass.value) {
+            email.style.backgroundColor="#D97059";
+            pass.style.backgroundColor="#D97059";
+            errMess.textContent="Please enter your email and password";
+            return;
+        }
+        else if  (!pass.value) {
+            pass.style.backgroundColor="#D97059";
+            errMess.textContent="Please enter your password";
+            return;
+        }
+        else if (!email.value) {
+            email.style.backgroundColor="#D97059";
+            errMess.textContent="Please enter your email";
+            return;
+        }else{
+            let data = new FormData();
+            data.append("email", email.value);
+            data.append("password", pass.value);
+            fetch(`https://s25-authentication-bapricethompson.onrender.com/users`, {
+                method: "POST",
+                body: data
+            }).then(function (response){
+                console.log(response.status);
+                if (response.status==422){
+                    errMess.textContent="You must enter a valid email";
+                }else if (response.status==500){
+                    errMess.textContent="Server error. Please try again later.";
+                } else if (response.status==400) {
+                    errMess.textContent="Something went wrong. Email already in use.";
+                }
+                else{
+                    log.style.display="none";
+                    main.style.display="block";
+                    loadPantry();
+                }
+            });
+        }
+
+    })
+
+    subPass.addEventListener("click", function(){
+        if (!email.value && !pass.value) {
+            email.style.backgroundColor="#D97059";
+            pass.style.backgroundColor="#D97059";
+            errMess.textContent="Please enter your email and password";
+            return;
+        }
+        else if  (!pass.value) {
+            pass.style.backgroundColor="#D97059";
+            errMess.textContent="Please enter your password";
+            return;
+        }
+        else if (!email.value) {
+            email.style.backgroundColor="#D97059";
+            errMess.textContent="Please enter your email";
+            return;
+        }else{
+            let data = new FormData();
+            data.append("email", email.value);
+            data.append("password", pass.value);
+            fetch(`https://s25-authentication-bapricethompson.onrender.com/session`, {
+                method: "POST",
+                body: data
+            }).then(function (response){
+                console.log(response.status);
+                if (response.status==401){
+                    errMess.textContent="Something went wrong. Please try again.";
+                }
+                else{
+                    log.style.display="none";
+                    main.style.display="block";
+                    loadPantry();
+                }
+            });
+        }
+
+    })
+
+
+
+}
+
+function isLogIn() {
+    let main=document.getElementById("main");
+    let body=document.getElementById("body");
+    let log=document.getElementById("login");
+    let subPass=document.getElementById("subPassword");
+    let subAcc=document.getElementById("subAccount");
+    let errMess=document.getElementById("errMessage");
+    let pass=document.getElementById("password");
+    let email=document.getElementById("email");
+    fetch("https://s25-authentication-bapricethompson.onrender.com/foods")
+        .then(function (response) {
+            if (response.status === 200) {
+                log.style.display="none";
+                main.style.display="block";
+                loadPantry();
+            } else {
+                login();
+            }
+        })
+        .catch(function (error) {
+            console.error("Fetch error:", error);
+        });
+}
+
+
+isLogIn();
 
