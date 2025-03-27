@@ -1,11 +1,41 @@
-main h1{
+#main h1{
     text-align:center;
     margin-top:0px;
     margin-bottom:0px;
     padding-top:0px;
 }
 
-body{
+#login{
+    width:100%;
+    
+    
+}
+
+#loginputs{
+  width:80%;
+  margin-left: auto;
+  margin-right:auto;
+  text-align:center;
+  margin-top:80px;
+  
+}
+
+#head{
+  width:100%;
+  background-color:#8C7669;
+}
+
+#head h1{
+  margin-right:auto;
+  margin-left:10px;
+  margin-top:0px;
+  margin-bottom:0px;
+  padding:10px;
+  color:white;
+}
+
+
+#body{
     margin-left:auto;
     margin-right:auto;
     margin-top:0px;
@@ -13,7 +43,7 @@ body{
     background-color: #F2F2F2 ;
 }
 
-main{
+#main{
     width:90%;
     background-color: #8C7669;
     margin-left: auto;
@@ -49,6 +79,18 @@ input[type=text] {
     box-sizing: border-box;
   }
   input[type=date] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type=email] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type=password] {
     width: 60%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -197,6 +239,56 @@ input[type="radio"]:checked + .radio-label {
 
   #submitButton:hover {
     background-color: #402A1E; 
+  }
+
+  #subPassword {
+    background-color: #402A1E; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius:10px;
+    cursor:pointer;
+  }
+
+  #subPassword:hover {
+    background-color: #644535; 
+  }
+
+
+  #subAccount {
+    background-color: #402A1E; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius:10px;
+    cursor:pointer;
+  }
+
+  #logout {
+    background-color: #402A1E; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-left:auto;
+    margin-right:10%;
+  }
+
+  #subAccount:hover {
+    background-color: #644535; 
   }
 
   #editButton {
